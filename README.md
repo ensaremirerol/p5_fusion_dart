@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/alfasquad/p5_fusion_dart/badge?s=b908736d24a1a58800405f64ecf8a4534ba19bed)](https://www.codefactor.io/repository/github/alfasquad/p5_fusion_dart)
 # p5_fusion_dart
 Library that can calculate fusions in Persona 5 game.
 
