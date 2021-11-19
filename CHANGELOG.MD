@@ -1,2 +1,0 @@
-# Changelog
-- First version
