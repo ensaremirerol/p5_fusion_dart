@@ -1,4 +1,4 @@
-import 'package:p5_fusion_dart/p5_fusion.dart';
+import 'package:p5_fusion_dart/p5_fusion_dart.dart';
 import 'utils/list_extensions.dart';
 import 'dart:math';
 

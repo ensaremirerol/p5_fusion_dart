@@ -30,7 +30,7 @@
 <header id="title">
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li><a href="https://alfasquad.github.io/p5_fusion_dart/">p5_fusion_dart package</a></li>
+    <li><a href="https://github.com/AlfaSquaD/p5_fusion_dart">p5_fusion_dart package</a></li>
   </ol>
   <div class="self-name">p5_fusion_dart</div>
   <form class="search navbar-right" role="search">
@@ -44,7 +44,19 @@
   <div id="dartdoc-main-content" class="main-content">
       
 <section class="desc markdown">
-  <p>A simple command-line application.</p>
+  <h1 id="p5_fusion_dart">p5_fusion_dart</h1>
+<p>Library that can calculate fusions in Persona 5 game.</p>
+<h1 id="example">Example</h1>
+<pre class="language-dart"><code class="language-dart">SkillRepository skillRepository = new SkillRepository();
+final PersonaRepository repo = PersonaRepository();
+final PersonaService service = PersonaService(repo);
+print(service.fuse(
+    repo.getPersonaByName("Regent"), repo.getPersonaByName("Obariyon")));
+print(service.getFusionsFrom(repo.getPersonaByName("Arsene")));
+print(service.getFusionsTo(repo.getPersonaByName("Queen's Necklace")));
+print(service.getFusionsTo(repo.getPersonaByName("Arsene")));
+print(skillRepository.getSkill("Absorb Bless"));
+</code></pre>
 </section>
 
 
@@ -72,7 +84,7 @@ Also contains Skill list
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="https://alfasquad.github.io/p5_fusion_dart/">p5_fusion_dart package</a></li>
+  <li><a href="https://github.com/AlfaSquaD/p5_fusion_dart">p5_fusion_dart package</a></li>
 </ol>
 
 

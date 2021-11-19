@@ -1,4 +1,4 @@
-import 'package:p5_fusion_dart/p5_fusion.dart';
+import 'package:p5_fusion_dart/p5_fusion_dart.dart';
 import 'package:p5_fusion_dart/src/const/skills.dart';
 import 'package:p5_fusion_dart/src/skill_data.dart';
 

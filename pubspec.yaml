@@ -1,7 +1,10 @@
 name: p5_fusion_dart
 description: Library that can calculate fusions in Persona 5 game.
 version: 1.0.0
-homepage: https://alfasquad.github.io/p5_fusion_dart/
+
+documentation: https://alfasquad.github.io/p5_fusion_dart/
+
+homepage: https://github.com/AlfaSquaD/p5_fusion_dart
 
 environment:
   sdk: '>=2.14.4 <3.0.0'

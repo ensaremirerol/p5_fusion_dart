@@ -1,6 +1,6 @@
 import "package:test/test.dart";
 
-import "package:p5_fusion_dart/p5_fusion.dart";
+import 'package:p5_fusion_dart/p5_fusion_dart.dart';
 
 void main() {
   SkillRepository skillRepository = new SkillRepository();

@@ -1,4 +1,4 @@
-import 'package:p5_fusion_dart/p5_fusion.dart';
+import 'package:p5_fusion_dart/p5_fusion_dart.dart';
 import 'package:p5_fusion_dart/src/const/combos.dart';
 import 'package:p5_fusion_dart/src/const/personas.dart';
 import 'package:p5_fusion_dart/src/fusion_data.dart';
