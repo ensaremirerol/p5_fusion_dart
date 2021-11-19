@@ -1,11 +1,9 @@
-import 'dart:ffi';
-
 import '../const/personas.dart' as consts;
 import '../persona.dart';
 
 import '../enums/dlc_personas_enum.dart';
 
-/// Holds all personas that are available in the game.
+/// Holds all [Persona]s that are available in the game.
 /// DLC Personas added according to the [selectedDlcPersonas] in constructor.
 class PersonaRepository {
   static final Map allPersonas = consts.personas;
@@ -18,11 +16,11 @@ class PersonaRepository {
 
   /// Creates a new instance of [PersonaRepository]
   /// with the [selectedDlcPersonas]
-  PersonaRepository({List<int> selectedDlcPersonas = const []})
+  PersonaRepository({List<DLCPersona> selectedDlcPersonas = const []})
       : _personas = _getNewPersonaList(selectedDlcPersonas);
 
   /// Updates the [personas] using the [selectedDlcPersonas]
-  void updatePersonaList(List<int> selectedDlcPersonas) {
+  void updatePersonaList(List<DLCPersona> selectedDlcPersonas) {
     _personas = _getNewPersonaList(selectedDlcPersonas);
   }
 
@@ -47,15 +45,21 @@ class PersonaRepository {
     });
   }
 
+  /// Returns rare [Persona]s
+  List<Persona> get getRarePersonas =>
+      _personas.where((element) => element.rare).toList();
+
   static bool _checkDlcPersonaSelected(
-      {required String personaName, required List<int> selectedDlcPersonas}) {
-    for (int e in selectedDlcPersonas) {
-      if (dlcPersonas[e].contains(personaName)) return true;
+      {required String personaName,
+      required List<DLCPersona> selectedDlcPersonas}) {
+    for (DLCPersona e in selectedDlcPersonas) {
+      if (dlcPersonas[e.index].contains(personaName)) return true;
     }
     return false;
   }
 
-  static List<Persona> _getNewPersonaList(List<int> selectedDlcPersonas) {
+  static List<Persona> _getNewPersonaList(
+      List<DLCPersona> selectedDlcPersonas) {
     return allPersonas.keys
         .map((e) => Persona.fromJson(e, allPersonas[e]))
         .where((element) =>

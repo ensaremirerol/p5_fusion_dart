@@ -1,14 +1,16 @@
-/// @nodoc
 import 'package:p5_fusion_dart/p5_fusion.dart';
 
+/// Stores a Skills' data.
 class SkillData {
   final String name;
   final Skill element;
-  final int cost;
+
+  /// Use [calculateCost] instead
+  final int? _cost;
   final String effect;
-  final Map<String, int> personas;
-  final List<String> negotiations;
-  final List<String> fusion;
+  final Map personas;
+  final String? negotiations;
+  final List<String>? fusion;
   final String? unique;
   final bool dlc;
   final String? note;
@@ -16,27 +18,28 @@ class SkillData {
   SkillData(
       {required this.name,
       required this.element,
-      required this.cost,
       required this.effect,
       required this.personas,
       required this.negotiations,
-      required this.fusion,
+      this.fusion,
       this.unique,
       required this.dlc,
-      this.note});
+      this.note,
+      int? cost})
+      : _cost = cost;
 
-  factory SkillData.fromJson(Map<String, dynamic> json) {
+  factory SkillData.fromJson(String name, Map<String, dynamic> json) {
     return SkillData(
-      name: json['name'] as String,
+      name: name,
       element: skillFromString(json['element'] as String)!,
-      cost: json['cost'] as int,
       effect: json['effect'] as String,
-      personas: json['personas'] as Map<String, int>,
-      negotiations: json['negotiations'] as List<String>,
-      fusion: json['fusion'] as List<String>,
-      unique: json['unique'] as String?,
-      dlc: json['dlc'] as bool,
-      note: json['note'] as String?,
+      personas: json['personas'],
+      negotiations: json['talk'],
+      fusion: json['fuse'] is String ? [json['fuse']] : json['fuse'],
+      unique: json['unique'],
+      dlc: json['dlc'] ?? false,
+      note: json['note'],
+      cost: json['cost'],
     );
   }
 
@@ -44,7 +47,7 @@ class SkillData {
     return <String, dynamic>{
       'name': name,
       'element': element.name,
-      'cost': cost,
+      'cost': _cost,
       'effect': effect,
       'personas': personas,
       'negotiations': negotiations,
@@ -53,5 +56,20 @@ class SkillData {
       'dlc': dlc,
       'note': note,
     };
+  }
+
+  /// Calculates the cost of the skill
+  String calculateCost() {
+    if (_cost == null) {
+      return '-';
+    } else if (_cost! < 100) {
+      return "$_cost% HP";
+    }
+    return "${_cost! ~/ 100}% SP";
+  }
+
+  @override
+  String toString() {
+    return 'SkillData{name: $name, element: $element, cost: $_cost, effect: $effect, personas: $personas, negotiations: $negotiations, fusion: $fusion, unique: $unique, dlc: $dlc, note: $note}';
   }
 }

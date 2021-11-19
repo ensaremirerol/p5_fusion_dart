@@ -41,6 +41,19 @@ extension ArcanaExtension on Arcana {
     return null;
   }
 
+  /// Returns combos that result in this [Arcana].
+  /// ```dart
+  ///   Arcana.fool.arcanaCombos()
+  /// ```
+  List<List<Arcana>> get resultingCombos {
+    List<List<Arcana>> combos = [];
+    for (Map combo in arcana2Combos) {
+      if (combo["result"] as Arcana == this)
+        combos.add(combo["source"] as List<Arcana>);
+    }
+    return combos;
+  }
+
   String get name {
     switch (this) {
       case Arcana.fool:

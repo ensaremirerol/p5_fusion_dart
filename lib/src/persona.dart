@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:p5_fusion_dart/p5_fusion.dart';
 
+/// Stores a Persona's data.
 class Persona extends Equatable with Comparable {
   final String name;
   final Arcana arcana;
@@ -72,6 +73,9 @@ class Persona extends Equatable with Comparable {
   bool operator >(Persona a) {
     return level > a.level;
   }
+
+  @override
+  String toString() => name;
 
   @override
   List<Object?> get props => [name];
