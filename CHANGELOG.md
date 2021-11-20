@@ -10,3 +10,8 @@
 ## 1.0.2
 
 - Added getter function for DLCPersona enum
+
+## 1.0.3
+
+- Added getter function for elements and resistance enums
+
