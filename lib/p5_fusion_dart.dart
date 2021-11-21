@@ -14,3 +14,4 @@ export "./src/enums/skills_enum.dart";
 export "./src/enums/stat_enum.dart";
 export './src/skill_data.dart';
 export './src/repo/skill_repository.dart';
+export './src/fusion_data.dart';

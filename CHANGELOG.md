@@ -15,3 +15,6 @@
 
 - Added getter function for elements and resistance enums
 
+# 1.0.4
+
+- Fusions class exposed
